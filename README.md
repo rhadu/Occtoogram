@@ -53,6 +53,9 @@ To minimize bandwidth usage, images are resized using the `resizeImageUrl` helpe
 
 Implementing virtualization using a library like `react-window` can help improve the performance of the InfiniteLoader component. Virtualization involves rendering only a subset of the items that are visible in the viewport, which reduces the number of DOM elements and speeds up rendering.
 
+### Implementing React.Suspense
+Consider using React.Suspense to handle the loading state of the components within the InfiniteLoader. This would allow for a cleaner and more declarative way to manage loading states and provide better flexibility in handling data fetching.
+
 ### Customizable Intersection Observer RootMargin
 
 Allow the `useInfiniteLoader` hook to accept a parameter that specifies how many rows in advance the Intersection Observer should trigger loading new data. This would provide better control over the loading behavior and make it more adaptable to different use cases.
