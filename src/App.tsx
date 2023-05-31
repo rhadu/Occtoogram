@@ -1,5 +1,4 @@
-import { Occtoogram } from "./components/Occtoogram"
-import "./App.css"
+import { Occtoogram } from "@components/Occtoogram"
 
 function App() {
   return <Occtoogram />

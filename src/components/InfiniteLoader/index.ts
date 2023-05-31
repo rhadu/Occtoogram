@@ -1,5 +1,3 @@
-import { InfiniteLoader } from "./InfiniteLoader"
-import { FetchFunction } from "./InfiniteLoader.types"
+import InfiniteLoader from "./InfiniteLoader"
 
-export type { FetchFunction }
 export { InfiniteLoader }

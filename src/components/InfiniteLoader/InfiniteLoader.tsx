@@ -1,9 +1,7 @@
-// InfiniteLoader.tsx
-
 import React from "react"
 
 import { useInfiniteLoader } from "./useInfiniteLoader"
-import { FetchFunction } from "."
+import { FetchFunction } from "@/types/InfiniteLoader.types"
 
 interface InfiniteLoaderProps<T> {
   fetchFunction: FetchFunction<T>
@@ -11,11 +9,11 @@ interface InfiniteLoaderProps<T> {
   renderItem: (item: T) => React.ReactNode
 }
 
-export const InfiniteLoader = <T,>({
+function InfiniteLoader<T>({
   fetchFunction,
   limit = 10,
   renderItem,
-}: InfiniteLoaderProps<T>) => {
+}: InfiniteLoaderProps<T>) {
   const { data, hasMore, loaderRef } = useInfiniteLoader(fetchFunction, limit)
 
   return (
@@ -27,3 +25,5 @@ export const InfiniteLoader = <T,>({
     </>
   )
 }
+
+export default InfiniteLoader

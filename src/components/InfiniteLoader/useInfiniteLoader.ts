@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { FetchFunction } from "./InfiniteLoader.types"
+import { FetchFunction } from "@/types/InfiniteLoader.types"
 
 export const useInfiniteLoader = <T>(
   fetchFunction: FetchFunction<T>,
@@ -35,10 +35,18 @@ export const useInfiniteLoader = <T>(
   }, [loaderRef, hasMore])
 
   useEffect(() => {
-    fetchFunction(page, limit).then((newData) => {
-      setData((prevData) => [...prevData, ...newData])
-      setHasMore(newData.length >= limit)
-    })
+    const fetchAndSetPosts = async () => {
+      const { data, error } = await fetchFunction(page, limit)
+
+      if (error) {
+        console.error(error.message)
+      } else {
+        setData((prevData) => [...prevData, ...data!])
+        setHasMore(data!.length >= limit)
+      }
+    }
+
+    fetchAndSetPosts()
   }, [fetchFunction, limit, page])
 
   return { data, hasMore, loaderRef }
