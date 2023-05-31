@@ -2,6 +2,10 @@
 
 Occtoogram is a React application that uses InfiniteLoader to display a gallery of images fetched from the [Lorem Picsum API](https://picsum.photos).
 
+## Live version
+
+https://occtoogram.vercel.app/
+
 ## Features
 
 - Infinite scrolling for image loading
